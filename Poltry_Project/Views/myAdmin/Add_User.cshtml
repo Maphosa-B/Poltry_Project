@@ -1,0 +1,103 @@
+﻿@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Add User";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+    Poltry_HubClient cl = new Poltry_HubClient();
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                @using (Html.BeginForm("Add_User", "myAdmin", FormMethod.Post, new { enctype = "multipart/form-data", Class = "form-horizontal p-3" }))
+                {
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">First Name</label>
+                            <input type="text" name="Fisrt_Name" class="form-control" value="">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Last Name</label>
+                            <input type="text" name="Last_Name" class="form-control" value="">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Cell Phone Number</label>
+                            <input type="tel" name="Cell_No" class="form-control" value="">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Email</label>
+                            <input type="email" name="Email" class="form-control" value="">
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Street</label>
+                            <input name="Street" type="text" class="form-control"  required>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">City</label>
+                            <input name="City" type="text" class="form-control"  required>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Postal Code</label>
+                            <input name="Postal_Code" type="tel" class="form-control"  required>
+                        </div>
+
+                         <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Date of Birth</label>
+                            <input type="date" name="DOB" class="form-control" value="">
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">User Type</label>
+                            <select class="form-control" name="UserType">
+                                <option value="2">Supplier</option>
+                                <option value="3">Driver</option>
+                                <option value="4">Customer</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Gender</label>
+                            <select class="form-control" name="Gender">
+                                <option value="0">Female</option>
+                                <option value="1">Male</option>
+                            </select>
+                        </div>
+
+
+ 
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Province</label>
+                            <select name="Province" class="form-control">
+                                @foreach (var i in cl.Get_All_Provinces())
+                                {
+                                    <option value="@i.Id">@i.Name</option>
+                                }
+
+
+                            </select>
+                        </div>
+
+                        <br />
+                        <div class="from-group">
+                            <button type="submit" class="btn btn-dark form-control ">Save</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

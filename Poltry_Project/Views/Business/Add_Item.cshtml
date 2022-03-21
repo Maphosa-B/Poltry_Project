@@ -1,0 +1,63 @@
+﻿@model Poltry_Project.Models.cAdd_Image
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Add_Item";
+    Layout = "~/Views/Shared/_Business.cshtml";
+    Poltry_HubClient client = new Poltry_HubClient();
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                    @using (Html.BeginForm("Add_Item", "Business",FormMethod.Post, new { enctype = "multipart/form-data", Class = "form-horizontal p-3" }))
+                    {
+                        <div class="card-body">
+
+                             <div class="form-group row">
+                                <label for="cono1" class=" text-right control-label col-form-label">Description</label>
+                                <textarea name="Desc" required class="form-control"></textarea>
+                            </div>
+
+                            
+                            <div class="form-group row">
+                                <label for="cono1" class=" text-right control-label col-form-label">Quantity</label>
+                                <input type="number" name="Quantity" class="form-control" id="cono1" value="">
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cono1" class=" text-right control-label col-form-label">Age (Weeks)</label>
+                                <input type="number" name="Age" class="form-control" id="cono1" value="">
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cono1" class=" text-right control-label col-form-label">Price (Per Chick)</label>
+                                <input type="number" name="Price" class="form-control" value="">
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cono1" class=" text-right control-label col-form-label">Chick Category</label>
+                                <select class="form-control" name="Category">
+                                    @foreach (var i in client.Get_All_Types_Of_Chicks())
+                                    {
+                                        <option selected value="@i.Id">@i.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <br />
+                            <div class="form-group row">
+                                <input type="file" name="imageForGallery" id="imageForGallery" required="" class="full-width" accept=".jpg" />
+                            </div>
+
+                            <br />  
+                            <div class="from-group">
+                                <button type="submit" class="btn btn-dark form-control ">Save</button>
+                            </div>
+
+                        </div>
+                    }         
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+﻿@model  IEnumerable<Poltry_Project.Poultry_Hub_SR.Cart>
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Cart";
+    int index = 0;
+    decimal Sub_Total = 0;
+    decimal Grand_Total = 20;
+
+    Poltry_HubClient cl = new Poltry_HubClient();
+
+}
+
+<div class="hero-wrap hero-bread" style="background-image: url('../../Front_Files/images/Cart_Banner.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Cart</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Count() <= 0)
+{
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 class="text-brown text-center">You don't have any items in your cart</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+}
+else
+{
+    using (Html.BeginForm("Update_Cart", "Home", FormMethod.Post))
+    {
+        <section class="ftco-section ftco-cart">
+            <div class="container justify-content-center">
+                <div class="row ">
+                    <div class="col-md-12 ftco-animate justify-content-center mr-4">
+                        <div class="cart-list w-100">
+                            <table class="table  justify-content-center">
+                                <thead class="thead-primary bg-brown">
+                                    <tr class="text-center">
+                                        <th>Remove</th>
+                                        <th>Item</th>
+                                        <th>Item name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var i in Model)
+                                    {
+                                        var total = i.Quantity * i.Price;
+                                        index++;
+                                        Sub_Total += i.Price * i.Quantity;
+                                        Grand_Total += Sub_Total;
+                                        ViewBag.TFee = Grand_Total;
+
+                                        <tr class="text-center">
+                                            <td class="product-remove"><a href="~/Home/Remove_Item_From_Cart/@i.Id"><span class="ion-ios-close"></span></a></td>
+
+                                            <td class="image-prod"><div class="img" style="background-image: url(@Url.Content(String.Format(i.Image_Path)));"></div></td>
+
+                                            <td class="product-name">
+                                                <h3>@i.Name</h3>
+                                                <p>@i.Description</p>
+                                            </td>
+
+                                            <td class="price">R @i.Price</td>
+
+                                            <td class="quantity">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" name="Quantity_@index" class="quantity form-control input-number" value="@i.Quantity" min="1" max="@cl.Get_Item_By_Id(i.Item_Id).Quantity" required>
+                                                </div>
+                                            </td>
+
+                                            <td class="total">R @total</td>
+                                            <td class="total"><input type="hidden" name="Cart_Id_@index" value="@i.Id" /></td>
+                                        </tr><!-- END TR-->
+
+
+                                    }
+
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 mt-5 cart-wrap ftco-animate">
+                        <div class="cart-total mb-3">
+                            <p class="d-flex">
+                                <span>Vat </span>
+                                <span>R 20</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Delivery</span>
+                                @if (Grand_Total > 500)
+                                {
+                                    <span>R0.00</span>
+                                }
+                                else
+                                {
+                                    <span>R80.00</span>
+                                }
+
+
+                            </p>
+                            <p class="d-flex">
+                                <span>Sub Total</span>
+                                <span>R @Sub_Total</span>
+                            </p>
+                            <hr>
+                            <p class="d-flex total-price">
+                                <span>Total</span>
+                                @if (Grand_Total < 500)
+                                {
+
+                                    <span>R @(Grand_Total+80)</span>
+                                }
+                                else
+                                {
+
+                                    <span>R @Grand_Total</span>
+                                }
+
+                            </p>
+                        </div>
+                    </div>
+                    <button class="btn rounded-0  btn-brown my-2 w-100 my-3 mx-1">Update Cart</button>
+                    <a href="~/Home/Checkout?Grand_Total=@Grand_Total&Sub_Total=@Sub_Total" class="btn rounded-0  btn-brown my-2 w-100 my-3 mx-1">Checkout</a>
+                </div>
+
+            </div>
+        </section>
+        <input type="hidden" name="index" value="@index" />
+    }
+}
+
+

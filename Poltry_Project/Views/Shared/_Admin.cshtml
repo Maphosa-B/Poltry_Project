@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <title>Poultry Hub ( Admin ) - @ViewBag.Title</title>
+    <!-- Custom CSS -->
+    <link href="~/Admin/assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="~/Admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Admin/dist/css/style.min.css" rel="stylesheet">
+
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/themes/default.rtl.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                </div>
+            </nav>
+        </header>
+
+
+        <aside class="left-sidebar sticky-top" data-sidebarbg="skin5">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="~/myAdmin/index" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Home</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="~/myAdmin/Add_User" aria-expanded="false"><i class="mdi mdi-plus"></i><span class="hide-menu">Add User</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="~/myAdmin/Add_Category" aria-expanded="false"><i class="mdi mdi-bookmark-check"></i><span class="hide-menu">Categories</span></a></li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-layers"></i><span class="hide-menu">Stats</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="~/myAdmin/Site_Stats" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Accounts</span></a></li>
+                                <li class="sidebar-item"><a href="~/myAdmin/Purchases_Stats" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Purchases</span></a></li>
+                                <li class="sidebar-item"><a href="~/myAdmin/Cart_Stats" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Items Added on Cart</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-nature-people"></i><span class="hide-menu">Users</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="~/myAdmin/Get_Customers" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Customers</span></a></li>
+                                <li class="sidebar-item"><a href="~/myAdmin/Get_Drivers" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Drivers</span></a></li>
+                                <li class="sidebar-item"><a href="~/myAdmin/Get_Businesses" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Suppliers</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face-profile"></i><span class="hide-menu">Profile</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Update Profile </span></a></li>
+                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Change Password </span></a></li>
+                                <li class="sidebar-item"><a href="~/Driver/Sign_Out" class="sidebar-link"><i class="mdi mdi-minus"></i><span class="hide-menu">Sign Out</span></a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+
+        <div class="page-wrapper">
+            @RenderBody()
+
+
+            <footer class="footer text-center">
+            </footer>
+
+        </div>
+
+    </div>
+    <script src="~/Admin/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/Admin/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/Admin/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="~/Admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Admin/assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="~/Admin/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/Admin/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/Admin/dist/js/custom.min.js"></script>
+    <!-- this page js -->
+    <script src="~/Admin/assets/libs/chart/matrix.interface.js"></script>
+    <script src="~/Admin/assets/libs/chart/excanvas.min.js"></script>
+    <script src="~/Admin/assets/libs/flot/jquery.flot.js"></script>
+    <script src="~/Admin/assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="~/Admin/assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="~/Admin/assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="~/Admin/assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="~/Admin/assets/libs/chart/jquery.peity.min.js"></script>
+    <script src="~/Admin/assets/libs/chart/matrix.charts.js"></script>
+    <script src="~/Admin/assets/libs/chart/jquery.flot.pie.min.js"></script>
+    <script src="~/Admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="~/Admin/assets/libs/chart/turning-series.js"></script>
+    <script src="~/Admin/dist/js/pages/chart/chart-page-init.js"></script>
+    <script src="~/Admin/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="~/Scripts/alertify.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+
+        $(function () {
+            var status = '@TempData["status"]'
+            if (status != '') {
+                alertify.success(status);
+
+            } else {
+                var error = '@TempData["error"]'
+                if (error!='') {
+                    alertify.error(error);
+                }
+            }
+        });
+
+    </script>
+
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config').DataTable();
+    </script>
+</body>
+</html>
+

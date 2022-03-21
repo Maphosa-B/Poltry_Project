@@ -1,0 +1,68 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.Transaction
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Get_Single_Order";
+    Layout = "~/Views/Shared/_Business.cshtml";
+    Poltry_HubClient client = new Poltry_HubClient();
+
+    var cart = client.Get_Single_Cart(Model.Cart_Id);
+    var Customer_Address = client.Get_Address(Model.Customer_Id);
+    var Business_Address = client.Get_Address(Model.Business_Id);
+    var C = client.Get_User(Model.Customer_Id);
+
+
+    var price = cart.Quantity * cart.Price;
+}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-body">
+                    <h4 class="card-title m-b-0 text-center">Order Details</h4>
+                </div>
+
+                <ul class="list-style-none">
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-user w-30px m-t-5 text-success"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-success p-0">Customer</a>
+                            <span class=""><b>Name: </b>@C.First_Name @C.Last_Name</span><br />
+                            <span class=""><b>City: </b>@Business_Address.City</span><br />
+                            <span class=""><b>Cellphone Number: </b>@C.Contacts</span><br />
+                            <span class=""><b>Email: </b>@C.Email</span><br />
+                        </div>
+                    </li>
+
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-map-marker w-30px m-t-5 text-success"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-success p-0">Destination</a>
+                            <span class=""><b>Street: </b>@Customer_Address.Street</span><br />
+                            <span class=""><b>City: </b>@Customer_Address.City</span><br />
+                            <span class=""><b>Postal Code: </b>@Customer_Address.Postal_Code</span><br />
+                            <span class=""><b>Province: </b>@client.Get_Single_Province(Customer_Address.Province_Id).Name</span><br />
+                        </div>
+                    </li>
+
+                
+
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-book w-30px m-t-5 text-dark"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-dark p-0"><b>#Reff:</b>  @Model.Unique_Transaction_Id.Substring(0, 8).ToUpper()<br /></a>
+                            <span class=""><b>Item Name: </b>@cart.Name</span><br />
+                            <span class=""><b>Quantity: </b>@cart.Quantity</span><br />
+                            <span class=""><b>Price: </b>R @price</span><br />
+                            <span class=""><b>Order Date: </b>R @cart.Add_Date</span><br />
+                            <span class=""><b>Estimate Delivery Date: </b>R @Model.Estimated_Delivery_Date</span><br />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

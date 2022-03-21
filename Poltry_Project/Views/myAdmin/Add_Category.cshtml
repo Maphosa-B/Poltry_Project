@@ -1,0 +1,76 @@
+﻿@model  IEnumerable<Poltry_Project.Poultry_Hub_SR.Types_Of_Chick>
+@{
+    ViewBag.Title = "Add_Category";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                @using (Html.BeginForm("Add_Category", "myAdmin", FormMethod.Post, new { enctype = "multipart/form-data", Class = "form-horizontal p-3" }))
+                {
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Category Name</label>
+                            <input type="text" name="Cat_Name" class="form-control" value="">
+                        </div>
+
+                        <br />
+                        <div class="from-group">
+                            <button type="submit" class="btn btn-dark form-control ">Save</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="zero_config" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var i in Model)
+                                {
+                                    <tr>
+                                        <td>@i.Name</td>
+                                          <td>
+                                            <a href="~/myAdmin/Edit_Category/@i.Id" class="mdi zmdi-edit"> Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <a href="~/myAdmin/index" class="cd-timeline-navigation btn-dark form-control"><i class="mdi mdi-arrow-left"></i> Home</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+

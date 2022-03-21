@@ -1,0 +1,115 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.Item
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    Poltry_HubClient client = new Poltry_HubClient();
+  
+    ViewBag.Title = "View_Single_Item";
+    var chicks = client.Get_Items_Suggestions();
+}
+
+<div class="hero-wrap hero-bread" style="background-image: url('../../Front_Files/images/Single_Item_Banner.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+               
+                <h1 class="mb-0 bread">@Model.Name Details</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+  
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href="images/product-1.jpg" class="image-popup"><img src="@Url.Content(String.Format(Model.Image_Path))" class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <hr />
+                <h2> @Model.Name</h2>
+                <hr />
+                <h6 class="text-brown">Supplier: @Model.Supplier_Name</h6>
+                <h6 class="text-brown">Age:  @Model.Age Weeks</h6>
+                <h6 class="text-brown">Price: R @Model.Price</h6>
+                <h6 class="text-brown">Available: @Model.Quantity</h6>
+                <hr />
+                <p>
+                    @Model.Description
+                </p>
+            </div>
+            <hr />
+
+            @using (Html.BeginForm("Add_To_Cart", "Home", FormMethod.Post, new { @Class = "bg-white p-5 contact-form justify-content-center w-100" }))
+            {
+                <input type="hidden" name="Item_Id" value="@Model.Id" />
+                <select class="form-control my-2" name="Quantity">
+                    @for (int i = 1; i <= Model.Quantity; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+                <a href="#" class="btn btn-brown w-100 rounded-0  my-2">Supplier Info</a>
+
+                if (Session["User_Id"] == null)
+                {
+                       <a href="~/Home/Sign_In" class="btn btn-brown w-100 rounded-0  my-2">Sign In To Add Item To Cart</a>
+                }
+                else
+                {
+                    <input type="submit" value="Add To Cart" class="btn btn-brown w-100 rounded-0  py-2">
+                }
+
+            }
+
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading text-brown">Chicks</span>
+                <h2 class="mb-4">Related Chicks</h2>
+                <p>Customers who bought @Model.Name were also interested in these chicks</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @foreach (var i in chicks)
+            {
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="~/Home/View_Single_Item/@i.Id" class="img-prod">
+                            <img src="@Url.Content(String.Format(i.Image_Path))" class="img-fluid" />
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#">Name: @i.Name</a></h3>
+                            <h3><a href="#">Supplier: @i.Supplier_Name</a></h3>
+                            <h3><a href="#">Ager: @i.Age Weeks</a></h3>
+                            <hr />
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price text-brown"><span>R @i.Price</span></p>
+
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <a href="~/Home/View_Single_Item/@i.Id" class="add-to-cart bg-brown d-flex justify-content-center align-items-center text-center">
+                                        <span><i class="ion-ios-more"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,88 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.User
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Get_Business_Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+    Poltry_HubClient cl = new Poltry_HubClient();
+
+    var pendingOrders = cl.Get_Business_Orders(Model.Id);
+    var delevered = cl.Get_Business_Delivered_Orders(Model.Id);
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-body">
+                    <h4 class="card-title m-b-0 text-center">Business Details</h4>
+                </div>
+
+                <ul class="list-style-none">
+                    <li class="d-flex no-block card-body border-top">
+                        <div>
+                            <span class=""><b>Name: </b>@Model.First_Name @Model.Last_Name</span><br />
+                            <span class=""><b>Cellphone Number: </b>@Model.Contacts</span><br />
+                            <span class=""><b>Email: </b>@Model.Email</span><br />
+                        </div>
+                    </li>
+
+                    <li class="form-control card-body border-top">
+
+                        <div class="mb-2">
+                            <a href="#" class="m-b-0 font-medium text-info p-0">Pending Orders</a>
+                        </div>
+
+                        @foreach (var i in pendingOrders)
+                        {
+
+                            var trans = cl.Get_Single_Transaction(i.Id);
+                            var cart = cl.Get_Single_Cart(i.Cart_Id);
+                            var c = cl.Get_User(cart.User_Id);
+
+                            var amount = (cart.Price * cart.Quantity);
+
+                            <div class="alert alert-success form-control" role="alert">
+                                <span><b>Customer Details: </b> @c.First_Name @c.Last_Name ( @c.Contacts | @c.Email )</span><br />
+                                <span><b>Order Date: </b> @cart.Add_Date</span><br />
+                                <span><b>Delevery Due Date: </b> @i.Estimated_Delivery_Date</span><br />
+                                <span><b>Delevery Fee: R</b> R200</span><br />
+                            </div>
+                        }
+                    </li>
+
+                    <li class="form-control card-body border-top">
+
+                        <div class="mb-2">
+                            <a href="#" class="m-b-0 font-medium text-success p-0">Delevered Orders</a>
+                        </div>
+
+                        @foreach (var i in delevered)
+                        {
+                            var trans = cl.Get_Single_Transaction(i.Id);
+                            var cart = cl.Get_Single_Cart(i.Cart_Id);
+                            var c = cl.Get_User(cart.User_Id);
+
+                            var amount = (cart.Price * cart.Quantity);
+
+                            <div class="alert alert-success form-control" role="alert">
+                                <span><b>Customer Details: </b> @c.First_Name @c.Last_Name ( @c.Contacts | @c.Email )</span><br />
+                                <span><b>Order Date: </b> @cart.Add_Date</span><br />
+                                 <span><b>Delevery Due Date: </b> @i.Estimated_Delivery_Date</span><br />                          
+                                <span><b>Delevery Fee: R</b> R200</span><br />
+                            </div>
+                        }
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-2">
+                <a href="~/myAdmin/Get_Drivers" class="cd-timeline-navigation btn-dark form-control"><i class="mdi mdi-arrow-left"></i> Back</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

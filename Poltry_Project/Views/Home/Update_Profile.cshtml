@@ -1,0 +1,106 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.User
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Profile";
+
+    Poltry_HubClient cl = new Poltry_HubClient();
+    var ad = cl.Get_Address(Model.Id);
+    var pr = cl.Get_All_Provinces();
+}
+
+
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                @using (Html.BeginForm("Update_Profile", "Home", FormMethod.Post, new { @Class = "bg-white p-5 contact-form justify-content-center" }))
+                {
+                    <h3 class="text-center mb-2 border-top border-bottom">Update Profile</h3>
+
+                    <input type="hidden" name="User_Id" value="@Model.Id" />
+                    <input type="hidden" name="Address_Id" value="@ad.Id" />
+
+                    <div class="form-group mt-3">
+                        <input name="First_Name" value="@Model.First_Name" type="text" class="form-control" placeholder="First Name" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="Last_Name" value="@Model.Last_Name" type="text" class="form-control" placeholder="Last Name" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="DOB" type="date" value="@Model.DOB.ToString().Substring(0,10).Replace("/","-")" class="form-control" placeholder="Date of Birth" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="Cell_No" value="@Model.Contacts" type="tel" class="form-control" placeholder="Cell Phone Number" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="Email" value="@Model.Email" type="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                     <div class="form-group mt-3">
+                        <select name="Gender" class="form-control">
+                                @if (Model.Gender == 0)
+                                {
+
+                                    <option selected value="0">Female</option>
+                                    <option value="1">Male</option>
+                                }
+                                else
+                                {
+
+                                    <option value="0">Female</option>
+                                    <option selected value="1">Male</option>
+                                }
+
+                        </select>
+                    </div>
+
+                    <hr class="my-2" />
+
+
+                    <div class="form-group mt-3">
+                        <input name="Street" value="@ad.Street" type="text" class="form-control" placeholder="Street" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="City" value="@ad.City" type="text" class="form-control" placeholder="City" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="Postal_Code" value="@ad.Postal_Code" type="tel" class="form-control" placeholder="Postal Code" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <select name="Province" class="form-control">
+                            @foreach (var i in pr)
+                            {
+                                if (ad.Province_Id == i.Id)
+                                {
+                                    <option selected value="@i.Id">@i.Name</option>
+                                }
+                                else
+                                {
+                                    <option  value="@i.Id">@i.Name</option>
+                                }
+
+
+                            }
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group justify-content-center">
+                        <input type="submit" value="Save" class="btn btn-brown w-100 rounded-0  py-3 px-5">
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

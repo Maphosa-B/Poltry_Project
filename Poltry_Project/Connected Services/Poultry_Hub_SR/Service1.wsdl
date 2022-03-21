@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://poultryhub-001-site1.ftempurl.com/Poltry_Hub.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://poultryhub-001-site1.ftempurl.com/Poltry_Hub.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://poultryhub-001-site1.ftempurl.com/Poltry_Hub.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Poultry" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPoltry_Hub_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Update_Profile_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update_Profile" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Update_Profile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Update_ProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Change_Password_InputMessage">
+    <wsdl:part name="parameters" element="tns:Change_Password" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Change_Password_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Change_PasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Role_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Role" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Role_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_RoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_User_Role_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_User_Role" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_User_Role_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_User_RoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Item_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Item" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Item_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Item_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Item" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Item_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Item_By_Id_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Item_By_Id" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Item_By_Id_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Item_By_IdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Item_By_Category_Id_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Item_By_Category_Id" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Item_By_Category_Id_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Item_By_Category_IdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Provinces_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Provinces" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Provinces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_ProvincesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Address_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Address" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Address_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_AddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Address_InputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_Address" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Address_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_AddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Address_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Address" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Address_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_AddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Items_Suggestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Items_Suggestions" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Items_Suggestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Items_SuggestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Item_To_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Item_To_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Item_To_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Item_To_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Remove_Item_From_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove_Item_From_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Remove_Item_From_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Remove_Item_From_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Updaate_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Updaate_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Updaate_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Updaate_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Make_Transaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:Make_Transaction" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Make_Transaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Make_TransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Make_Delivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:Make_Delivery" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Make_Delivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Make_DeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Transportation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_Transportation" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Transportation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_TransportationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Driver_Cancel_Transportation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Driver_Cancel_Transportation" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Driver_Cancel_Transportation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Driver_Cancel_TransportationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Number_Of_Items_In_User_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Number_Of_Items_In_User_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Number_Of_Items_In_User_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Number_Of_Items_In_User_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Types_Of_Chicks_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Types_Of_Chicks" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Types_Of_Chicks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Types_Of_ChicksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Track_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Track_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Track_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Track_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Transactions_History_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Transactions_History" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Transactions_History_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Transactions_HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Transaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Transaction" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Transaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_TransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Orders_To_Be_Delevered_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Orders_To_Be_Delevered" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Orders_To_Be_Delevered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Orders_To_Be_DeleveredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Province_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Province" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Province_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_ProvinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Delivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Delivery" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Delivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_DeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Driver_Deliveies_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Driver_Deliveies" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Driver_Deliveies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Driver_DeliveiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Driver_Deliveies_History_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Driver_Deliveies_History" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Driver_Deliveies_History_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Driver_Deliveies_HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Delivered_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delivered" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Delivered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliveredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Role_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Role" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Role_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_RoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Trasnsaction_History_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Trasnsaction_History" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Trasnsaction_History_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Trasnsaction_HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Single_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Single_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Single_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Single_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_To_Be_Delivered_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_To_Be_Delivered_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_To_Be_Delivered_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_To_Be_Delivered_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Single_Orders_To_Be_Delivered_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Single_Orders_To_Be_Delivered" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Single_Orders_To_Be_Delivered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Single_Orders_To_Be_DeliveredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Delivered_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Delivered_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Delivered_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Delivered_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Single_Delivered_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Single_Delivered_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Business_Single_Delivered_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Business_Single_Delivered_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Driver_By_Transaction_Id_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Driver_By_Transaction_Id" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Driver_By_Transaction_Id_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Driver_By_Transaction_IdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Items_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Items" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Items_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_ItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Chick_Category_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Chick_Category" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Chick_Category_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Chick_CategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Item_InputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_Item" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Item_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Users_By_Role_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Users_By_Role" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Users_By_Role_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Users_By_RoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Delevered_Orders_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Delevered_Orders" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_User_Delevered_Orders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_User_Delevered_OrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Transportation_Details_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Transportation_Details" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Transportation_Details_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Transportation_DetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Category_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Category" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Add_Category_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_CategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Delete_Category_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_Category" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Delete_Category_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_CategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Delete_Item_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_Item" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Delete_Item_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Category_InputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_Category" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Edit_Category_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Edit_CategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Category_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_Category" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_Single_Category_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Single_CategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Users_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Users" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Users_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_UsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Cart_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Cart" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Cart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_CartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Transaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Transaction" />
+  </wsdl:message>
+  <wsdl:message name="IPoltry_Hub_Get_All_Transaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_TransactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPoltry_Hub">
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Register" message="tns:IPoltry_Hub_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/RegisterResponse" message="tns:IPoltry_Hub_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Profile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Update_Profile" message="tns:IPoltry_Hub_Update_Profile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Update_ProfileResponse" message="tns:IPoltry_Hub_Update_Profile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Change_Password">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Change_Password" message="tns:IPoltry_Hub_Change_Password_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Change_PasswordResponse" message="tns:IPoltry_Hub_Change_Password_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Login" message="tns:IPoltry_Hub_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/LoginResponse" message="tns:IPoltry_Hub_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Role">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_Role" message="tns:IPoltry_Hub_Add_Role_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_RoleResponse" message="tns:IPoltry_Hub_Add_Role_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_User_Role">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_User_Role" message="tns:IPoltry_Hub_Add_User_Role_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_User_RoleResponse" message="tns:IPoltry_Hub_Add_User_Role_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User" message="tns:IPoltry_Hub_Get_User_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_UserResponse" message="tns:IPoltry_Hub_Get_User_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Item">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_Item" message="tns:IPoltry_Hub_Add_Item_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_ItemResponse" message="tns:IPoltry_Hub_Add_Item_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Item">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Item" message="tns:IPoltry_Hub_Get_All_Item_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_ItemResponse" message="tns:IPoltry_Hub_Get_All_Item_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Item_By_Id">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Item_By_Id" message="tns:IPoltry_Hub_Get_Item_By_Id_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Item_By_IdResponse" message="tns:IPoltry_Hub_Get_Item_By_Id_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Item_By_Category_Id">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Item_By_Category_Id" message="tns:IPoltry_Hub_Get_Item_By_Category_Id_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Item_By_Category_IdResponse" message="tns:IPoltry_Hub_Get_Item_By_Category_Id_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Provinces">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Provinces" message="tns:IPoltry_Hub_Get_All_Provinces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_ProvincesResponse" message="tns:IPoltry_Hub_Get_All_Provinces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Address">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_Address" message="tns:IPoltry_Hub_Add_Address_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_AddressResponse" message="tns:IPoltry_Hub_Add_Address_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Address">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_Address" message="tns:IPoltry_Hub_Edit_Address_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_AddressResponse" message="tns:IPoltry_Hub_Edit_Address_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Address">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Address" message="tns:IPoltry_Hub_Get_Address_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_AddressResponse" message="tns:IPoltry_Hub_Get_Address_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Items_Suggestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Items_Suggestions" message="tns:IPoltry_Hub_Get_Items_Suggestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Items_SuggestionsResponse" message="tns:IPoltry_Hub_Get_Items_Suggestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Item_To_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_Item_To_Cart" message="tns:IPoltry_Hub_Add_Item_To_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_Item_To_CartResponse" message="tns:IPoltry_Hub_Add_Item_To_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove_Item_From_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Remove_Item_From_Cart" message="tns:IPoltry_Hub_Remove_Item_From_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Remove_Item_From_CartResponse" message="tns:IPoltry_Hub_Remove_Item_From_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Cart" message="tns:IPoltry_Hub_Get_User_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_CartResponse" message="tns:IPoltry_Hub_Get_User_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Updaate_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Updaate_Cart" message="tns:IPoltry_Hub_Updaate_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Updaate_CartResponse" message="tns:IPoltry_Hub_Updaate_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Make_Transaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Make_Transaction" message="tns:IPoltry_Hub_Make_Transaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Make_TransactionResponse" message="tns:IPoltry_Hub_Make_Transaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Make_Delivery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Make_Delivery" message="tns:IPoltry_Hub_Make_Delivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Make_DeliveryResponse" message="tns:IPoltry_Hub_Make_Delivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Transportation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_Transportation" message="tns:IPoltry_Hub_Edit_Transportation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_TransportationResponse" message="tns:IPoltry_Hub_Edit_Transportation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Driver_Cancel_Transportation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Driver_Cancel_Transportation" message="tns:IPoltry_Hub_Driver_Cancel_Transportation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Driver_Cancel_TransportationResponse" message="tns:IPoltry_Hub_Driver_Cancel_Transportation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Number_Of_Items_In_User_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Number_Of_Items_In_User_Cart" message="tns:IPoltry_Hub_Number_Of_Items_In_User_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Number_Of_Items_In_User_CartResponse" message="tns:IPoltry_Hub_Number_Of_Items_In_User_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Types_Of_Chicks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Types_Of_Chicks" message="tns:IPoltry_Hub_Get_All_Types_Of_Chicks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Types_Of_ChicksResponse" message="tns:IPoltry_Hub_Get_All_Types_Of_Chicks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Track_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Track_Orders" message="tns:IPoltry_Hub_Track_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Track_OrdersResponse" message="tns:IPoltry_Hub_Track_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Transactions_History">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Transactions_History" message="tns:IPoltry_Hub_Get_Transactions_History_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Transactions_HistoryResponse" message="tns:IPoltry_Hub_Get_Transactions_History_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Transaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Transaction" message="tns:IPoltry_Hub_Get_Single_Transaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_TransactionResponse" message="tns:IPoltry_Hub_Get_Single_Transaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Cart" message="tns:IPoltry_Hub_Get_Single_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_CartResponse" message="tns:IPoltry_Hub_Get_Single_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Orders_To_Be_Delevered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Orders_To_Be_Delevered" message="tns:IPoltry_Hub_Get_Orders_To_Be_Delevered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Orders_To_Be_DeleveredResponse" message="tns:IPoltry_Hub_Get_Orders_To_Be_Delevered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Province">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Province" message="tns:IPoltry_Hub_Get_Single_Province_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_ProvinceResponse" message="tns:IPoltry_Hub_Get_Single_Province_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Delivery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Delivery" message="tns:IPoltry_Hub_Get_Single_Delivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_DeliveryResponse" message="tns:IPoltry_Hub_Get_Single_Delivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Driver_Deliveies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Driver_Deliveies" message="tns:IPoltry_Hub_Get_Driver_Deliveies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Driver_DeliveiesResponse" message="tns:IPoltry_Hub_Get_Driver_Deliveies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Driver_Deliveies_History">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Driver_Deliveies_History" message="tns:IPoltry_Hub_Get_Driver_Deliveies_History_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Driver_Deliveies_HistoryResponse" message="tns:IPoltry_Hub_Get_Driver_Deliveies_History_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delivered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Delivered" message="tns:IPoltry_Hub_Delivered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/DeliveredResponse" message="tns:IPoltry_Hub_Delivered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Role">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Role" message="tns:IPoltry_Hub_Get_User_Role_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_RoleResponse" message="tns:IPoltry_Hub_Get_User_Role_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Trasnsaction_History">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Trasnsaction_History" message="tns:IPoltry_Hub_Get_User_Trasnsaction_History_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Trasnsaction_HistoryResponse" message="tns:IPoltry_Hub_Get_User_Trasnsaction_History_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Orders" message="tns:IPoltry_Hub_Get_Business_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_OrdersResponse" message="tns:IPoltry_Hub_Get_Business_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Single_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Orders" message="tns:IPoltry_Hub_Get_Business_Single_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Single_OrdersResponse" message="tns:IPoltry_Hub_Get_Business_Single_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_To_Be_Delivered_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_To_Be_Delivered_Orders" message="tns:IPoltry_Hub_Get_Business_To_Be_Delivered_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_To_Be_Delivered_OrdersResponse" message="tns:IPoltry_Hub_Get_Business_To_Be_Delivered_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Single_Orders_To_Be_Delivered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Orders_To_Be_Delivered" message="tns:IPoltry_Hub_Get_Business_Single_Orders_To_Be_Delivered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Orders_To_Be_DeliveredResponse" message="tns:IPoltry_Hub_Get_Business_Single_Orders_To_Be_Delivered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Delivered_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Delivered_Orders" message="tns:IPoltry_Hub_Get_Business_Delivered_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Delivered_OrdersResponse" message="tns:IPoltry_Hub_Get_Business_Delivered_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Single_Delivered_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Delivered_Orders" message="tns:IPoltry_Hub_Get_Business_Single_Delivered_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Delivered_OrdersResponse" message="tns:IPoltry_Hub_Get_Business_Single_Delivered_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Driver_By_Transaction_Id">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Driver_By_Transaction_Id" message="tns:IPoltry_Hub_Get_User_Driver_By_Transaction_Id_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Driver_By_Transaction_IdResponse" message="tns:IPoltry_Hub_Get_User_Driver_By_Transaction_Id_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Items">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Items" message="tns:IPoltry_Hub_Get_User_Items_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_ItemsResponse" message="tns:IPoltry_Hub_Get_User_Items_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Chick_Category">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Chick_Category" message="tns:IPoltry_Hub_Get_Chick_Category_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Chick_CategoryResponse" message="tns:IPoltry_Hub_Get_Chick_Category_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Item">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_Item" message="tns:IPoltry_Hub_Edit_Item_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_ItemResponse" message="tns:IPoltry_Hub_Edit_Item_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users_By_Role">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Users_By_Role" message="tns:IPoltry_Hub_Get_Users_By_Role_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Users_By_RoleResponse" message="tns:IPoltry_Hub_Get_Users_By_Role_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Orders" message="tns:IPoltry_Hub_Get_User_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_OrdersResponse" message="tns:IPoltry_Hub_Get_User_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Delevered_Orders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Delevered_Orders" message="tns:IPoltry_Hub_Get_User_Delevered_Orders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_User_Delevered_OrdersResponse" message="tns:IPoltry_Hub_Get_User_Delevered_Orders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Transportation_Details">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Transportation_Details" message="tns:IPoltry_Hub_Get_Single_Transportation_Details_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Transportation_DetailsResponse" message="tns:IPoltry_Hub_Get_Single_Transportation_Details_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Category">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_Category" message="tns:IPoltry_Hub_Add_Category_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Add_CategoryResponse" message="tns:IPoltry_Hub_Add_Category_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Category">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Delete_Category" message="tns:IPoltry_Hub_Delete_Category_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Delete_CategoryResponse" message="tns:IPoltry_Hub_Delete_Category_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Item">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Delete_Item" message="tns:IPoltry_Hub_Delete_Item_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Delete_ItemResponse" message="tns:IPoltry_Hub_Delete_Item_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Category">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_Category" message="tns:IPoltry_Hub_Edit_Category_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Edit_CategoryResponse" message="tns:IPoltry_Hub_Edit_Category_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Category">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_Category" message="tns:IPoltry_Hub_Get_Single_Category_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_Single_CategoryResponse" message="tns:IPoltry_Hub_Get_Single_Category_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Users">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Users" message="tns:IPoltry_Hub_Get_All_Users_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_UsersResponse" message="tns:IPoltry_Hub_Get_All_Users_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Cart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Cart" message="tns:IPoltry_Hub_Get_All_Cart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_CartResponse" message="tns:IPoltry_Hub_Get_All_Cart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Transaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_Transaction" message="tns:IPoltry_Hub_Get_All_Transaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPoltry_Hub/Get_All_TransactionResponse" message="tns:IPoltry_Hub_Get_All_Transaction_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPoltry_Hub" type="tns:IPoltry_Hub">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Profile">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Update_Profile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Change_Password">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Change_Password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Role">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Add_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_User_Role">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Add_User_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Item">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Add_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Item">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_All_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Item_By_Id">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Item_By_Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Item_By_Category_Id">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Item_By_Category_Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Provinces">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_All_Provinces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Address">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Add_Address" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Address">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Edit_Address" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Address">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Address" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Items_Suggestions">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Items_Suggestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Item_To_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Add_Item_To_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove_Item_From_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Remove_Item_From_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Updaate_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Updaate_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Make_Transaction">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Make_Transaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Make_Delivery">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Make_Delivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Transportation">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Edit_Transportation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Driver_Cancel_Transportation">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Driver_Cancel_Transportation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Number_Of_Items_In_User_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Number_Of_Items_In_User_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Types_Of_Chicks">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_All_Types_Of_Chicks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Track_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Track_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Transactions_History">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Transactions_History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Transaction">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Single_Transaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Single_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Orders_To_Be_Delevered">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Orders_To_Be_Delevered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Province">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Single_Province" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Delivery">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Single_Delivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Driver_Deliveies">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Driver_Deliveies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Driver_Deliveies_History">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Driver_Deliveies_History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delivered">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Delivered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Role">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Trasnsaction_History">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Trasnsaction_History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Business_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Single_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_To_Be_Delivered_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Business_To_Be_Delivered_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Single_Orders_To_Be_Delivered">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Orders_To_Be_Delivered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Delivered_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Business_Delivered_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Business_Single_Delivered_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Business_Single_Delivered_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Driver_By_Transaction_Id">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Driver_By_Transaction_Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Items">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Items" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Chick_Category">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Chick_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Item">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Edit_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users_By_Role">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Users_By_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Delevered_Orders">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_User_Delevered_Orders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Transportation_Details">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Single_Transportation_Details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Category">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Add_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Category">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Delete_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Item">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Delete_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Edit_Category">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Edit_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Single_Category">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_Single_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Users">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_All_Users" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Cart">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_All_Cart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Transaction">
+      <soap:operation soapAction="http://tempuri.org/IPoltry_Hub/Get_All_Transaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IPoltry_Hub" binding="tns:BasicHttpBinding_IPoltry_Hub">
+      <soap:address location="http://poultryhub-001-site1.ftempurl.com/Poltry_Hub.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

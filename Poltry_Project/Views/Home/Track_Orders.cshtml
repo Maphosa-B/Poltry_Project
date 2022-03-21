@@ -1,0 +1,87 @@
+﻿@model  IEnumerable<Poltry_Project.Poultry_Hub_SR.Transaction>
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Track_Orders";
+    Poltry_HubClient cl = new Poltry_HubClient();
+    ;
+}
+
+
+
+
+
+@if (Model.Count() <= 0)
+{
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 class="text-brown text-center">You don't have any orders.. <br /> Please click <a class="text-info" href="~/Home/Shop">here</a> to view our catalog</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+}
+else
+{
+    <section class="ftco-section ftco-cart">
+        <div class="container justify-content-center">
+            <div class="row ">
+                <div class="col-md-12 ftco-animate justify-content-center mr-4">
+                    <div class="cart-list w-100">
+                        <table class="table  justify-content-center">
+                            <thead class="thead-primary bg-brown">
+                                <tr class="text-center">
+                                    <th>Item Name</th>
+                                    <th>Quantity</th>
+                                    <th>Order Date</th>
+                                    <th>Estimated Arrival Date</th>
+                                    <th>Transportation Status</th>
+                                    <th> Amount</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var i in Model)
+                                {
+                                    var c = cl.Get_Single_Cart(i.Cart_Id);
+                                    var amount = c.Price * c.Quantity;
+                                    <tr class="text-center">
+                                        <td class="total">@c.Name</td>
+                                        <td class="total">@c.Quantity</td>
+                                        <td class="total">@c.Add_Date</td>
+                                        <td class="total">@i.Estimated_Delivery_Date.ToString().Substring(0, 10)</td>
+
+
+                                        @if (i.Is_Delivery_Accepted == 1)
+                                        {
+                                            <td class="total">Accepted</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="total">Not Yet Accepted</td>
+                                        }
+                                        <td class="total">R @amount</td>
+                                    </tr><!-- END TR-->
+                                }
+                            </tbody>
+
+
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+}

@@ -1,0 +1,86 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.Transaction
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "View Single Order";
+    Layout = "~/Views/Shared/_Driver.cshtml";
+    Poltry_HubClient client = new Poltry_HubClient();
+
+    var cart = client.Get_Single_Cart(Model.Cart_Id);
+    var Customer_Address = client.Get_Address(Model.Customer_Id);
+    var Business_Address = client.Get_Address(Model.Business_Id);
+    var B = client.Get_User(Model.Business_Id);
+    var C = client.Get_User(Model.Customer_Id);
+
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-body">
+                    <h4 class="card-title m-b-0 text-center">Delivery Details</h4>
+                </div>
+
+                <ul class="list-style-none">
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-user w-30px m-t-5 text-info"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-info p-0">Supplier</a>
+                            <span class=""><b>Name: </b>@B.First_Name @B.Last_Name</span><br />
+                            <span class=""><b>Cellphone Number: </b>@B.Contacts</span><br />
+                            <span class=""><b>Email: </b>@B.Email</span><br />
+                        </div>
+                    </li>
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-location-arrow w-30px m-t-5 text-info"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-info p-0">Origin</a>
+                            <span class=""><b>Street: </b>@Business_Address.Street</span><br />
+                            <span class=""><b>City: </b>@Business_Address.City</span><br />
+                            <span class=""><b>Postal Code: </b>@Business_Address.Postal_Code</span><br />
+                            <span class=""><b>Province: </b>@client.Get_Single_Province(Business_Address.Province_Id).Name</span><br />
+                        </div>
+                    </li>
+
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-user w-30px m-t-5 text-success"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-success p-0">Customer</a>
+                            <span class=""><b>Name: </b>@C.First_Name @C.Last_Name</span><br />
+                            <span class=""><b>City: </b>@Business_Address.City</span><br />
+                            <span class=""><b>Cellphone Number: </b>@C.Contacts</span><br />
+                            <span class=""><b>Email: </b>@C.Email</span><br />
+                        </div>
+                    </li>
+
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-map-marker w-30px m-t-5 text-success"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-success p-0">Destination</a>
+                            <span class=""><b>Street: </b>@Customer_Address.Street</span><br />
+                            <span class=""><b>City: </b>@Customer_Address.City</span><br />
+                            <span class=""><b>Postal Code: </b>@Customer_Address.Postal_Code</span><br />
+                            <span class=""><b>Province: </b>@client.Get_Single_Province(Customer_Address.Province_Id).Name</span><br />
+                        </div>
+                    </li>
+
+                    <li class="d-flex no-block card-body border-top">
+                        <i class="fa fa-money-bill-alt w-30px m-t-5 text-success"></i>
+                        <div>
+                            <a href="#" class="m-b-0 font-medium text-success p-0">Delivery Cash</a>
+                            <span class=""><b>Cash: </b>R 80</span><br />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-2">
+                <form action="~/Driver/Delevered/@Model.Id" method="post">
+                    <input type="hidden" name="Trans_Id" value="@Model.Id" />
+                    <button class="cd-timeline-navigation btn-success form-control">Delivered</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

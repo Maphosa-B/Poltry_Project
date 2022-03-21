@@ -1,0 +1,60 @@
+﻿@model  IEnumerable<Poltry_Project.Poultry_Hub_SR.Item>
+
+@{
+    ViewBag.Title = "Shop";
+}
+
+
+<div class="hero-wrap hero-bread" style="background-image: url('../../Front_Files/images/Chicken_Banner.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Shop</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var i in Model)
+            {
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="~/Home/View_Single_Item/@i.Id" class="img-prod">
+                            <img src="@Url.Content(String.Format(i.Image_Path))" class="img-fluid" style="width: 100%; height: 30vh; object-fit: cover;" />
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#">Name: @i.Name</a></h3>
+                            <h3><a href="#">Supplier: @i.Supplier_Name</a></h3>
+                            <h3><a href="#">Ager: @i.Age Weeks</a></h3>
+                            <hr />
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price text-brown"><span>R @i.Price</span></p>
+
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <a href="~/Home/View_Single_Item/@i.Id" class="add-to-cart bg-brown d-flex justify-content-center align-items-center text-center">
+                                        <span><i class="ion-ios-more"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section>
+
+
+

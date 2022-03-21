@@ -1,0 +1,70 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.Item
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Edit Item";
+    Layout = "~/Views/Shared/_Business.cshtml";
+    Poltry_HubClient client = new Poltry_HubClient();
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                @using (Html.BeginForm("Edit_Item", "Business", FormMethod.Post, new { enctype = "multipart/form-data", Class = "form-horizontal p-3" }))
+                {
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Name</label>
+                            <input type="text" name="Name" class="form-control" value="@Model.Name">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Description</label>
+                            <textarea name="Desc" required class="form-control">@Model.Description</textarea>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Quantity</label>
+                            <input type="number" name="Quantity" class="form-control" id="cono1" value="@Model.Quantity">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Age (Weeks)</label>
+                            <input type="number" name="Age" class="form-control" id="cono1" value="@Model.Age">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Price (Per Chick)</label>
+                            <input type="number" name="Price" class="form-control" value="@Model.Price">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Chick Category</label>
+                            <select class="form-control" name="Category">
+                                @foreach (var i in client.Get_All_Types_Of_Chicks())
+                                {
+                                    if (Model.Category_Id == i.Id)
+                                    {
+                                        <option selected value="@i.Id">@i.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option  value="@i.Id">@i.Name</option>
+                                    }
+
+
+                                }
+                            </select>
+                        </div>
+                        <br />
+                        <div class="from-group">
+                            <button type="submit" class="btn btn-dark form-control ">Save</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

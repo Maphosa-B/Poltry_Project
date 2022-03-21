@@ -1,0 +1,36 @@
+﻿@model Poltry_Project.Poultry_Hub_SR.Types_Of_Chick
+
+@{
+    ViewBag.Title = "Edit_Category";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                @using (Html.BeginForm("Edit_Category", "myAdmin", FormMethod.Post, new { enctype = "multipart/form-data", Class = "form-horizontal p-3" }))
+                {
+                    <div class="card-body">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="form-group row">
+                            <label for="cono1" class=" text-right control-label col-form-label">Category Name</label>
+                            <input type="text" name="Cat_Name" class="form-control" value="@Model.Name">
+                        </div>
+
+                        <br />
+                        <div class="from-group">
+                            <button type="submit" class="btn btn-dark form-control ">Save</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+

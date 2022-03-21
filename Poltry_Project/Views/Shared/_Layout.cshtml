@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+@using Poltry_Project.Poultry_Hub_SR;
+@{ 
+    Poltry_HubClient client = new Poltry_HubClient();
+}
+
+<html lang="en">
+<head>
+    <title>Poultry Hub - @ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Front_Files/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Front_Files/css/animate.css">
+
+    <link rel="stylesheet" href="~/Front_Files/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Front_Files/css/aos.css">
+
+    <link rel="stylesheet" href="~/Front_Files/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Front_Files/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Front_Files/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Front_Files/css/flaticon.css">
+    <link rel="stylesheet" href="~/Front_Files/css/icomoon.css">
+    <link rel="stylesheet" href="~/Front_Files/css/style.css">
+
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/themes/default.rtl.min.css" rel="stylesheet" />
+</head>
+<body class="goto-here">
+    <div class="py-1 bg-brown">
+        <div class="container">
+            <div class="text-center">
+                <span class="text">3-5 Business days delivery</span>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" style="color:#472c15;" href="~/Home/index">Poultry Hub</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="~/Home/index" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="~/Home/Shop" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            @foreach (var i in client.Get_All_Types_Of_Chicks())
+                            {
+                                <a class="dropdown-item" href="~/Home/Shop/@i.Id">@i.Name</a>
+                            }
+
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+
+
+                    @if (Session["User_Id"] != null)
+                    {
+                        <li class="nav-item cta cta-colored"><a href="~/Home/Cart/@Session["User_Id"]" class="nav-link"><span class="icon-shopping_cart"></span>Cart [@Session["Cart_Items_No"]]</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@Session["User_Name"]</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                <a class="dropdown-item" href="~/Home/Track_Orders">Track Orders</a>
+                                <a class="dropdown-item" href="~/Home/Transactions_History">Transactions History</a>
+                                <a class="dropdown-item" href="~/Home/Update_Profile">Edit Profile</a>
+                                <a class="dropdown-item" href="~/Home/Update_Password">Change Password</a>
+                                <a class="dropdown-item" href="~/Home/Sign_Out">Sign Out</a>
+
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item cta cta-colored"><a href="~/Home/Sign_In" class="nav-link"><span class="icon-sign-in"></span>Sign In</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    @RenderBody()
+
+
+
+    <footer class="ftco-footer ftco-section bg-brown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="text-light">
+                        @DateTime.Today.Year  All Rights Reserved &copy; Problem 404 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" 1 /></svg></div>
+
+
+    <script src="~/Front_Files/js/jquery.min.js"></script>
+    <script src="~/Front_Files/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Front_Files/js/popper.min.js"></script>
+    <script src="~/Front_Files/js/bootstrap.min.js"></script>
+    <script src="~/Front_Files/js/jquery.easing.1.3.js"></script>
+    <script src="~/Front_Files/js/jquery.waypoints.min.js"></script>
+    <script src="~/Front_Files/js/jquery.stellar.min.js"></script>
+    <script src="~/Front_Files/js/owl.carousel.min.js"></script>
+    <script src="~/Front_Files/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Front_Files/js/aos.js"></script>
+    <script src="~/Front_Files/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Front_Files/js/bootstrap-datepicker.js"></script>
+    <script src="~/Front_Files/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Front_Files/js/google-map.js"></script>
+    <script src="~/Front_Files/js/main.js"></script>
+
+    <script src="~/Scripts/alertify.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+
+        $(function () {
+            var status = '@TempData["status"]'
+            if (status != '') {
+                alertify.success(status);
+
+            } else {
+                var error = '@TempData["error"]'
+                if (error!='') {
+                    alertify.error(error);
+                }
+            }
+        });
+
+    </script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+
+</body>
+</html>

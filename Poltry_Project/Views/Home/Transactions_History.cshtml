@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Poltry_Project.Poultry_Hub_SR.Transaction>
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Transactions_History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Poltry_HubClient client = new Poltry_HubClient();
+}
+
+<div class="container-fluid border-0">
+    <div class="row">
+        <div class="col-md-12 border-0">
+            <div class="card border-0">
+
+                <div class="card-body">
+                    <h4 class="card-title m-b-0 text-center">Transactions History</h4>
+                </div>
+
+                <ul class="list-style-none">
+                    @foreach (var i in Model)
+                    {
+                        var cart = client.Get_Single_Cart(i.Cart_Id);
+                        var price = cart.Quantity * cart.Price;
+           
+                        <li class="d-flex no-block card-body border-top">
+                            <i class="fa fa-user w-30px m-t-5 text-info"></i>
+                            <div>
+                                <a href="#" class="m-b-0 font-medium text-dark p-0"><b>#Reff:</b>  @i.Unique_Transaction_Id.Substring(0, 8).ToUpper()<br /></a>
+                                <span class=""><b>Item Name: </b>@cart.Name</span><br />
+                                <span class=""><b>Quantity: </b>@cart.Quantity</span><br />
+                                <span class=""><b>Price: </b>R @price</span><br />
+                                <span class=""><b>Order Date: </b>R @cart.Add_Date</span><br />
+                                <span class=""><b>Estimate Delivery Date: </b>R @i.Estimated_Delivery_Date</span><br />                        
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,52 @@
+﻿@model  IEnumerable<Poltry_Project.Poultry_Hub_SR.Province>
+@using Poltry_Project.Poultry_Hub_SR;
+@{
+    ViewBag.Title = "Address";
+}
+
+
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                @using (Html.BeginForm("Add_Address", "Home", FormMethod.Post, new { @Class = "bg-white p-5 contact-form justify-content-center" }))
+                {
+                    <h3 class="text-center mb-2 border-top border-bottom">Address</h3>
+
+                    <div class="form-group mt-3">
+                        <input name="Street" type="text" class="form-control" placeholder="Street" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="City" type="text" class="form-control" placeholder="City" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input name="Postal_Code" type="tel" class="form-control" placeholder="Postal Code" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <select name="Province" class="form-control">
+                            @foreach (var i in Model)
+                            {
+                                <option value="@i.Id">@i.Name</option>
+                            }
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group justify-content-center">
+                        <input type="submit" value="Save" class="btn btn-brown w-100 rounded-0  py-3 px-5">
+                    </div>
+
+               }
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
