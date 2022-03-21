@@ -9,8 +9,11 @@ namespace Poltry_Project.Controllers
 {
     public class DriverController : Controller
     {
+        //Web Service client
         Poltry_HubClient client = new Poltry_HubClient();
       
+
+        //Landing page for a driver
         [HttpGet]
         public ActionResult Index()
         {
